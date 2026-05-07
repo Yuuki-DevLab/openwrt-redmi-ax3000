@@ -1,0 +1,11 @@
+--- a/Source/cmake.cxx
++++ b/Source/cmake.cxx
+@@ -112,7 +112,7 @@
+ #  include "cmExtraSublimeTextGenerator.h"
+ #endif
+ 
+-#if defined(__linux__) || defined(_WIN32)
++#if !defined(CMAKE_BOOTSTRAP) && (defined(__linux__) || defined(_WIN32))
+ #  include "cmGlobalGhsMultiGenerator.h"
+ #endif
+ 

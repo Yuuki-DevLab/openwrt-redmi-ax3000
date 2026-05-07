@@ -1,0 +1,61 @@
+--- a/squashfs-tools/mksquashfs.c
++++ b/squashfs-tools/mksquashfs.c
+@@ -415,8 +415,9 @@ void restorefs()
+ }
+ 
+ 
+-void sighandler()
++void sighandler(int signum)
+ {
++	(void)signum;
+ 	EXIT_MKSQUASHFS();
+ }
+ 
+--- a/squashfs-tools/progressbar.c
++++ b/squashfs-tools/progressbar.c
+@@ -52,8 +52,9 @@ pthread_t progress_thread;
+ pthread_mutex_t progress_mutex = PTHREAD_MUTEX_INITIALIZER;
+ 
+ 
+-static void sigwinch_handler()
++static void sigwinch_handler(int signum)
+ {
++	(void)signum;
+ 	struct winsize winsize;
+ 
+ 	if(ioctl(1, TIOCGWINSZ, &winsize) == -1) {
+@@ -66,8 +67,9 @@ static void sigwinch_handler()
+ }
+ 
+ 
+-static void sigalrm_handler()
++static void sigalrm_handler(int signum)
+ {
++	(void)signum;
+ 	rotate = (rotate + 1) % 4;
+ }
+ 
+--- a/squashfs-tools/unsquashfs.c
++++ b/squashfs-tools/unsquashfs.c
+@@ -136,8 +136,9 @@ void prep_exit()
+ }
+ 
+ 
+-void sigwinch_handler()
++void sigwinch_handler(int signum)
+ {
++	(void)signum;
+ 	struct winsize winsize;
+ 
+ 	if(ioctl(1, TIOCGWINSZ, &winsize) == -1) {
+@@ -150,8 +151,9 @@ void sigwinch_handler()
+ }
+ 
+ 
+-void sigalrm_handler()
++void sigalrm_handler(int signum)
+ {
++	(void)signum;
+ 	rotate = (rotate + 1) % 4;
+ }
+ 

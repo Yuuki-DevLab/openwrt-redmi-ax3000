@@ -528,6 +528,7 @@ ifneq ($(CONFIG_TARGET_ipq50xx),)
 		mkdir -p $(SUBDIR) backports-source ath-kernel && \
 		$(HOST_TAR) -C backports-source --strip-components=1 -xJf $(DL_DIR)/$(BACKPORTS_SOURCE_SOURCE) && \
 		$(HOST_TAR) -C ath-kernel --strip-components=1 -xJf $(DL_DIR)/$(ATH_KERNEL_SOURCE) && \
+		rm -f backports-source/patches/0073-netdevice-mtu-range.cocci && \
 		( \
 			cd $(TMP_DIR)/dl/backports-source && \
 			PATH="/sbin:${PATH}" \

@@ -20,7 +20,8 @@ include $(INCLUDE_DIR)/host-build.mk
 HOST_CONFIGURE_ARGS += --without-x
 
 HOST_CONFIGURE_VARS += \
-	ac_cv_header_iconv_h=no
+	ac_cv_header_iconv_h=no \
+	ac_cv_func_strtoi=no
 
 define Host/Compile
 	$(MAKE) -C $(HOST_BUILD_DIR) mcopy mmd
