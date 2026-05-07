@@ -1,0 +1,18 @@
+ipq50xx_attach_data_ubi() {
+	local mtdnum ubipath
+
+	[ -r /proc/mtd ] || return
+	grep -q '"rootfs_1"' /proc/mtd && return
+
+	mtdnum="$(sed -n 's/^mtd\([0-9][0-9]*\):.*"data".*/\1/p' /proc/mtd)"
+	[ -n "$mtdnum" ] || return
+
+	for ubipath in /sys/class/ubi/ubi[0-9]*; do
+		[ -r "$ubipath/mtd_num" ] || continue
+		[ "$(cat "$ubipath/mtd_num")" = "$mtdnum" ] && return
+	done
+
+	ubiattach -m "$mtdnum" >/dev/null 2>&1
+}
+
+boot_hook_add preinit_main ipq50xx_attach_data_ubi

@@ -71,6 +71,7 @@ define Device/redmi_ax3000
 	ATH11K_MEM_PROFILE_256M \
 	ath11k-firmware-ipq5018 \
 	ath11k-firmware-qcn6122 \
+	block-mount \
 	ipq-wifi-redmi_ax3000
 endef
 TARGET_DEVICES += redmi_ax3000
@@ -89,6 +90,7 @@ define Device/xiaomi_cr881x
 	ATH11K_MEM_PROFILE_256M \
 	ath11k-firmware-ipq5018 \
 	ath11k-firmware-qcn6122 \
+	block-mount \
 	ipq-wifi-xiaomi_cr881x
 endef
 TARGET_DEVICES += xiaomi_cr881x
