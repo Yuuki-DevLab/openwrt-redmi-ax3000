@@ -21,18 +21,23 @@
 
 ## How to build
 
-OS: `Ubuntu 20.04 (focal)`
+OS is tested using `Arch Linux`, the host toolchain are too modern for the old code so this repo has some workaround for them :)
+
+0. Install dependencies, for `Ubuntu 20.04` you would do by execute the following:
 
 ```bash
-# Install dependencies
 sudo add-apt-repository ppa:npalix/coccinelle
 sudo apt update
 sudo apt install build-essential clang flex g++ gawk gcc-multilib gettext \
   git libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev \
   coccinelle
+```
 
+1. After that follow these steps
+
+```bash
 # Clone this repo
-git clone https://github.com/hzyitc/openwrt-redmi-ax3000
+git clone https://github.com/Yuuki-DevLab/openwrt-redmi-ax3000
 cd openwrt-redmi-ax3000
 
 # Update and install feeds
@@ -43,10 +48,10 @@ cd openwrt-redmi-ax3000
 make menuconfig
 
 # Download
-make -j16 download
+PATH="$(realpath)/scripts/bin/:$PATH" make -j16 download
 
 # Build
-make -j$(nproc)
+PATH="$(realpath)/scripts/bin/:$PATH" make -j$(nproc)
 ```
 
 ## How to install
