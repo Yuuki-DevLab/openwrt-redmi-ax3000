@@ -45,6 +45,8 @@ define Device/cmcc_rax3000q
   DEVICE_DTS_CONFIG := config@mp02.1
   IMAGES := nand-factory.ubi
   DEVICE_PACKAGES := \
+	kmod-zram \
+	zram-swap \
 	ath11k-firmware-ipq5018 \
 	ath11k-firmware-qcn6122 \
 	ipq-wifi-cmcc_rax3000q
@@ -72,6 +74,8 @@ define Device/redmi_ax3000
 	ath11k-firmware-ipq5018 \
 	ath11k-firmware-qcn6122 \
 	block-mount \
+	kmod-zram \
+	zram-swap \
 	ipq-wifi-redmi_ax3000
 endef
 TARGET_DEVICES += redmi_ax3000
@@ -91,6 +95,8 @@ define Device/xiaomi_cr881x
 	ath11k-firmware-ipq5018 \
 	ath11k-firmware-qcn6122 \
 	block-mount \
+	kmod-zram \
+	zram-swap \
 	ipq-wifi-xiaomi_cr881x
 endef
 TARGET_DEVICES += xiaomi_cr881x
