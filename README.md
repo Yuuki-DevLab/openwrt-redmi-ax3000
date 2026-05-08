@@ -48,10 +48,10 @@ cd openwrt-redmi-ax3000
 make menuconfig
 
 # Download
-PATH="$(realpath)/scripts/bin/:$PATH" make -j16 download
+PATH="$(pwd)/scripts/bin/:$PATH" make -j16 download
 
 # Build
-PATH="$(realpath)/scripts/bin/:$PATH" make -j$(nproc)
+PATH="$(pwd)/scripts/bin/:$PATH" make -j$(nproc)
 ```
 
 ## How to install
